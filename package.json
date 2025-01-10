@@ -5,8 +5,16 @@
   "description": "teste desenvolvedor backend target sistemas",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "Andressa Viana Batista",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/preset-env": "^7.26.0",
+    "jest": "^29.7.0"
+  },
+  "dependencies": {
+    "@babel/core": "^7.26.0",
+    "babel-jest": "^29.7.0"
+  }
 }
