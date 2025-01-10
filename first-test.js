@@ -69,9 +69,36 @@ export function daysBiggerThanMonthAverage() {
 }
 
 export function percentageByState() {
+    const turnover =  {
+        SP: 67836.43,
+        RJ: 36678.66,
+        MG: 29229.88,
+        ES: 27165.48,
+        Outros: 19849.53
+    };
 
+    let totalTurnover = 0;
+    for (const state in turnover) {
+        totalTurnover += turnover[state];
+    }
+
+    let statesPercentage = {};
+    for (const state in turnover) {
+        const percentage = (turnover[state] / totalTurnover) * 100;
+        statesPercentage[state] = percentage.toFixed(2);
+    }
+
+    return statesPercentage;
 }
 
-console.log(lowestTurnover());
-console.log(highestTurnover());
-console.log(daysBiggerThanMonthAverage());
+export function revertString(string) {
+    let r = "";
+
+    for(let i = string.length - 1; i >= 0; i--) {
+        r += string[i];
+    }
+
+    return r;
+ }
+
+console.log(percentageByState());
