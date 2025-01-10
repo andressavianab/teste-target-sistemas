@@ -99,6 +99,4 @@ export function revertString(string) {
     }
 
     return r;
- }
-
-console.log(percentageByState());
+}
