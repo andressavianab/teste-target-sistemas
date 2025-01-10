@@ -30,40 +30,48 @@ export function isFibonacci(n) {
 }
 
 export function lowestTurnover() {
-  let validTurnovers = data.filter((item) => item.turnover > 0);
+  let validTurnovers = data.filter((item) => item.valor > 0);
 
-  let lowestTurnover = validTurnovers[0].turnover;
+  let lowestTurnover = validTurnovers[0].valor;
   for (let i = 0; i < validTurnovers.length; i++) {
-    if (validTurnovers[i].turnover < lowestTurnover) {
-      lowestTurnover = validTurnovers[i].turnover;
+    if (validTurnovers[i].valor < lowestTurnover) {
+      lowestTurnover = validTurnovers[i].valor;
     }
   }
 
-  return lowestTurnover;
+  return lowestTurnover.toFixed(2);
 }
 
 export function highestTurnover() {
-  let validTurnovers = data.filter((item) => item.turnover > 0);
+  let validTurnovers = data.filter((item) => item.valor > 0);
 
   let highestTurnover = 0;
 
   for (let i = 0; i < validTurnovers.length; i++) {
-    if (validTurnovers[i].turnover > highestTurnover) {
-        highestTurnover = validTurnovers[i].turnover;
+    if (validTurnovers[i].valor > highestTurnover) {
+        highestTurnover = validTurnovers[i].valor;
         }
     }
-    return highestTurnover;
+    return highestTurnover.toFixed(2);
 }
 
 export function daysBiggerThanMonthAverage() {
-    let average = (data.reduce((acc, item) => acc + item.turnover, 0) / data.length).toFixed(2);
+    let average = (data.reduce((acc, item) => acc + item.valor, 0) / data.length).toFixed(2);
 
     let days = 0;
     for (let i = 0; i < data.length; i++) {
-        if (data[i].turnover > average) {
+        if (data[i].valor > average) {
             days++;
         }
     }
 
     return days;
 }
+
+export function percentageByState() {
+
+}
+
+console.log(lowestTurnover());
+console.log(highestTurnover());
+console.log(daysBiggerThanMonthAverage());
